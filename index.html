@@ -5,8 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-这是一个页面。
-这是另一个页面。
-这是测试。
+hhhhhhh
 </body>
+<script src="js/jQuery-2.2.0.min.js"></script>
+<script>
+    function  get() {
+        url="page.html?p1=1&&p2=2&&p3=3";
+//        console.log(typeof url);//string
+        var a=url.indexOf("?");//9
+        var b=url.substring(url.indexOf('?')+1);//p1=1&&p2=2&&p3=3
+        var c=b.split('&&');//["p1=1", "p2=2", "p3=3"]
+        var d=c.reverse();//["p3=3", "p2=2", "p1=1"]
+        var  e=d.join('&&');//p3=3&&p2=2&&p1=1
+        var f=url.substr(0,a+1) ;
+        console.log(f);
+        url=f+e;
+        console.log(url);//page.html?p3=3&&p2=2&&p1=1
+        window.location=url;
+    }
+
+    get();
+</script>
 </html>
